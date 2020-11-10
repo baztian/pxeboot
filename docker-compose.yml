@@ -1,0 +1,21 @@
+version: "3.7"
+services:
+  pxe:
+    image: ferrarimarco/pxe
+    volumes:
+    - ${PWD}/dnsmasq.conf:/etc/dnsmasq.conf
+    - ${PWD}/grubx64.efi:/var/lib/tftpboot/grubx64.efi
+    - ${PWD}/grub:/var/lib/tftpboot/grub
+    - ${PWD}/iso:/var/lib/tftpboot/iso
+    - ${PWD}/pxelinux.cfg/additional_menu_entries:/var/lib/tftpboot/pxelinux.cfg/additional_menu_entries
+#    ports:
+#      - "53:53/udp"
+    network_mode: "host"
+    cap_add:
+    - NET_ADMIN
+  web:
+    image: nginx
+    volumes:
+    - ./preseed:/usr/share/nginx/html/preseed:ro
+    ports:
+    - "8080:80"

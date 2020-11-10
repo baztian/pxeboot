@@ -1,9 +1,14 @@
 
 # My working preseed file for LinuxMint 18 Cinnamon
 
-d-i debian-installer/language string en
+# uncomment the following line to enable a installation that does not stop
+# at the beginning of the process. (This could wipe machines that accidently
+# start the pxe boot!!!)
+#d-i debian-installer/language string en
 d-i debian-installer/locale string en_US
 d-i debian-installer/country string DE
+#d-i     localechooser/supported-locales    en_US.UTF-8
+# causes probs?
 d-i     localechooser/supported-locales    multiselect en_US.UTF-8, de_DE.UTF-8
 d-i     keyboard-configuration/xkb-keymap  select de
 d-i     keyboard-configuration/layoutcode  string de
