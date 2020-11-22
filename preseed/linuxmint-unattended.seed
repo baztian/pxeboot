@@ -104,7 +104,7 @@ ubiquity ubiquity/success_command string \
   in-target apt-get -y install git;\
   in-target apt-add-repository ppa:ansible/ansible; \
   in-target apt-get update; \
-  in-target apt-get -y install ansible ansible-lint;
+  in-target apt-get -y install ansible;
 
 # Finish off the install by rebooting the freshly installed Linux Mint desktop
 d-i  ubiquity/reboot  boolean true
