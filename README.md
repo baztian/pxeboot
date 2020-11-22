@@ -43,6 +43,10 @@ Change the default LUKS password from `insecure` to something more secure.
 
     sudo cryptsetup luksChangeKey /dev/sda3
 
+Consider extending root volume.
+
+    sudo lvextend -l +100%FREE /dev/workstation/root
+    sudo resize2fs -p /dev/workstation/root
 
 ## Virtualbox setup
 
