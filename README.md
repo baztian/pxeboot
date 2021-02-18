@@ -11,6 +11,14 @@ Details regarding preseeding: https://help.ubuntu.com/lts/installation-guide/amd
     mount on linux system
     chmod -R ug+rwX,o+rX,o-w /Public/isos/myiso
 
+## unnattended configuration
+
+Run
+
+    docker compose up
+
+in order to provide the unattended seed (I'm running it on 192.168.178.38)
+
 ## Either boot via PXE.
 
 Get additional files not provided in this repo.
