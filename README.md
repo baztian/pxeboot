@@ -46,6 +46,10 @@ Or create a custom USB drive manually.
 3. Modify `boot/grub/grub.cfg` as desired. See [the example from this repo](usb/grub.cfg).
 4. After booting and choosing `Unattended install...` remove the USB after the initrd has been loaded (which should only take a couple of seconds).
 
+For mint:
+
+    cp linuxmint-20.1-xfce-64bit/casper/vmlinuz linuxmint-20.1-xfce-64bit/casper/initrd.lz "/media/bbowe/Ubuntu 20.04.1 LTS amd64/mint/"
+
 ## Finish installation
 
 Change the default LUKS password from `insecure` to something more secure.
