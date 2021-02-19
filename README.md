@@ -23,13 +23,14 @@ in order to provide the unattended seed (I'm running it on 192.168.178.38)
 
 Get additional files not provided in this repo.
 
+    DIST=linuxmint-20.1-xfce-64bit.iso
     cd pxeboot
     sudo mkdir /tmp/loop
-    mkdir -p iso/linuxmint-20-xfce-64bit.iso
-    sudo mount -o loop /mnt/nas/home/isos/linuxmint-20-xfce-64bit.iso /tmp/loop
-    sudo cp -r /tmp/loop/. iso/linuxmint-20-xfce-64bit.iso/
+    mkdir -p iso/${DIST}
+    sudo mount -o loop /mnt/nas/home/isos/${DIST} /tmp/loop
+    sudo cp -r /tmp/loop/. iso/${DIST}/
     mkdir /tmp/out
-    dpkg -x iso/linuxmint-20-xfce-64bit.iso/pool/main/g/grub2-signed/grub-efi-amd64-signed_1.142+2.04-1ubuntu26_amd64.deb /tmp/out/
+    dpkg -x iso/${DIST}/pool/main/g/grub2-signed/grub-efi-amd64-signed_*.deb /tmp/out/
     sudo cp /tmp/out/usr/lib/grub/x86_64-efi-signed/grubnetx64.efi.signed grubx64.efi
 
 ## Or use USB stick
