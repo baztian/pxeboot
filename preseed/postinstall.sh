@@ -19,3 +19,7 @@ nocows = 1
 HERE
 etckeeper commit "ansible configuration"
 chmod 751 ~ubuntu
+
+sudo -u ubuntu mkdir ~ubuntu/Sources
+sudo -u ubuntu git clone https://github.com/baztian/ansible-mint-setup.git ~ubuntu/Sources/ansible-mint-setup
+
