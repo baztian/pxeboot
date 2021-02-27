@@ -23,3 +23,6 @@ chmod 751 ~ubuntu
 sudo -u ubuntu mkdir ~ubuntu/Sources
 sudo -u ubuntu git clone https://github.com/baztian/ansible-mint-setup.git ~ubuntu/Sources/ansible-mint-setup
 
+usermod -md /home/bbowe -c "Bastian Bowe" -l bbowe ubuntu
+groupmod -n bbowe ubuntu
+etckeeper commit "renamed ubuntu user"
