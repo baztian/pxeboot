@@ -1,6 +1,9 @@
 #!/bin/sh
 sed -i 's/^managed=false/managed=true/' /etc/NetworkManager/NetworkManager.conf
-apt-get -y install openssh-server
+
+sed -i 's/^XKBOPTIONS=.*/XKBOPTIONS="compose:menu"/' /etc/default/keyboard
+
+apt install -y openssh-server
 sed -i 's/Port 22/Port 12345/' /etc/ssh/sshd_config
 apt-get -y install git
 apt-add-repository -y ppa:ansible/ansible
