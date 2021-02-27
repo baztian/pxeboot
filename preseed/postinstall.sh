@@ -18,3 +18,4 @@ interpreter_python = /usr/bin/python3
 nocows = 1
 HERE
 etckeeper commit "ansible configuration"
+chmod 751 ~ubuntu
