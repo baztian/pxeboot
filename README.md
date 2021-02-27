@@ -48,7 +48,8 @@ Or create a custom USB drive manually.
 
 For mint:
 
-    cp linuxmint-20.1-xfce-64bit/casper/vmlinuz linuxmint-20.1-xfce-64bit/casper/initrd.lz "/media/bbowe/Ubuntu 20.04.1 LTS amd64/mint/"
+    mkdir "/media/bbowe/Ubuntu 20.04.1 LTS amd64/mint-20.1/"
+    cp linuxmint-20.1-xfce-64bit/casper/vmlinuz linuxmint-20.1-xfce-64bit/casper/initrd.lz "/media/bbowe/Ubuntu 20.04.1 LTS amd64/mint-20.1/"
 
 ## Finish installation
 
