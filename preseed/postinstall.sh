@@ -6,6 +6,7 @@ sed -i 's/^XKBOPTIONS=.*/XKBOPTIONS="compose:menu"/' /etc/default/keyboard
 
 apt install -y openssh-server
 sed -i 's/Port 22/Port 12345/' /etc/ssh/sshd_config
+echo PasswordAuthentication no >> /etc/ssh/sshd_config
 
 apt install -y git
 apt-add-repository -y ppa:ansible/ansible
