@@ -35,8 +35,9 @@ Get additional files not provided in this repo.
 
 ## Or use USB stick
 
-For UEFI via USB: Hit `e` on the grub menu entry. Add ip=dhcp before `--` and append
-`automatic-ubiquity url=http://192.168.178.38:8080/preseed/linuxmint-unattended.seed`
+For UEFI via USB: Hit `e` on the grub menu entry. Add `ip=dhcp noprompt`
+before `--` and append
+`automatic-ubiquity url=http://192.168.178.38:8080/preseed/linuxmint-unattended.seed script-url=http://192.168.178.38:28080/preseed/postinstall.sh`
  after the `--`.
 
 Or create a custom USB drive manually.

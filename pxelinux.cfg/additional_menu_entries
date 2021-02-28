@@ -7,5 +7,5 @@ LABEL LinuxMint20
 LABEL UnnatendedInstallLinuxMint20
   MENU LABEL Unattended install Linux Mint 20.1 Xfce 64-bit
   KERNEL iso/linuxmint-20.1-xfce-64bit.iso/casper/vmlinuz
-  APPEND initrd=iso/linuxmint-20.1-xfce-64bit.iso/casper/initrd.lz nfsroot=192.168.178.20:/Public/isos/linuxmint-20.1-xfce-64bit boot=casper netboot=nfs toram ip=dhcp bootkbd=de console-setup/layoutcode=de -- locale=en_US keyboard-configuration/modelcode=pc105 automatic-ubiquity url=http://192.168.178.38:8080/preseed/linuxmint-unattended.seed script-url=http://192.168.178.38:8080/preseed/postinstall.sh
+  APPEND initrd=iso/linuxmint-20.1-xfce-64bit.iso/casper/initrd.lz nfsroot=192.168.178.20:/Public/isos/linuxmint-20.1-xfce-64bit boot=casper netboot=nfs toram ip=dhcp -- automatic-ubiquity url=http://192.168.178.38:8080/preseed/linuxmint-unattended.seed script-url=http://192.168.178.38:8080/preseed/postinstall.sh
   #keyboard-configuration/layoutcode=de bootkbd=de console-setup/layoutcode=de pre
