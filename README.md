@@ -52,6 +52,10 @@ For mint:
     mkdir "/media/bbowe/Ubuntu 20.04.1 LTS amd64/mint-20.1/"
     cp linuxmint-20.1-xfce-64bit/casper/vmlinuz linuxmint-20.1-xfce-64bit/casper/initrd.lz "/media/bbowe/Ubuntu 20.04.1 LTS amd64/mint-20.1/"
 
+For Ubuntu from the standard desktop installer usb image change the boot parameters to:
+
+    initrd=/casper/initrd boot=casper ip=dhcp noprompt -- automatic-ubiquity url=http://192.168.178.38:8080/preseed/linuxmint-unattended.seed  script-url=http://192.168.178.38:28080/preseed/postinstall.sh
+
 ## Finish installation
 
 Change the default LUKS password from `insecure` to something more secure.
