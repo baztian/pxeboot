@@ -35,7 +35,8 @@ d-i     console-setup/variantcode          string
 # - regular: use the usual partition types for your architecture
 # - lvm:     use LVM to partition the disk
 # - crypto:  use LVM within an encrypted partition
-d-i partman-auto/method string crypto
+# commented out in to allow overwriting via boot commandline
+#d-i partman-auto/method string crypto
 d-i partman-crypto/passphrase password insecure
 d-i partman-crypto/passphrase-again password insecure
 

@@ -52,9 +52,27 @@ done
 sudo -u ubuntu mkdir ~ubuntu/Sources
 sudo -u ubuntu git clone https://github.com/baztian/ansible-mint-setup.git ~ubuntu/Sources/ansible-mint-setup
 
+USER_LANG=$(extract_param user-lang)
+if [ -n "$USER_LANG" ]; then
+    # Example value: de_DE.utf8
+    echo "export LANGUAGE=$USER_LANG" >> ~ubuntu/.profile
+fi
+
 USER_NAME=$(extract_param username)
 if [ -n "$USER_NAME" ]; then
-    usermod -md "/home/$USER_NAME" -l "$USER_NAME" ubuntu
+    usermod -md "/home/$USER_NAME" -c "$USER_NAME" -l "$USER_NAME" ubuntu
     groupmod -n "$USER_NAME" ubuntu
     etckeeper commit "renamed ubuntu user to $USER_NAME"
+else
+    USER_NAME=ubuntu
+fi
+
+AUTO_LOGIN=$(extract_param auto-login)
+if [ "$AUTO_LOGIN" = "true" ]; then
+    # https://unix.stackexchange.com/questions/381785/how-do-i-enable-auto-login-in-mint-18
+    test -d /etc/lightdm && cat << HERE > /etc/lightdm/lightdm.conf
+[Seat:*]
+autologin-user=$USER_NAME
+HERE
+    etckeeper commit "autologin user $USER_NAME"
 fi

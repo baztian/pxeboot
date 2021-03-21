@@ -19,7 +19,7 @@ Run
 
 in order to provide the unattended seed (I'm running it on 192.168.178.38)
 
-## Either boot via PXE.
+## Either boot via PXE
 
 Get additional files not provided in this repo.
 
@@ -35,9 +35,9 @@ Get additional files not provided in this repo.
 
 ## Or use USB stick
 
-For UEFI via USB: Hit `e` on the grub menu entry. Add `ip=dhcp noprompt`
+For UEFI via USB: Hit `e` on the grub menu entry. Add `ip=dhcp noprompt url=http://192.168.178.38:8080/preseed/linuxmint-unattended.seed script-url=http://192.168.178.38:28080/preseed/postinstall.sh auto-login=false ssh-port=22 username=ubuntu hostname=ubuntu`
 before `--` and append
-`automatic-ubiquity url=http://192.168.178.38:8080/preseed/linuxmint-unattended.seed script-url=http://192.168.178.38:28080/preseed/postinstall.sh ssh-port=22 username=ubuntu hostname=ubuntu`
+`automatic-ubiquity`
  after the `--`.
 
 Or create a custom USB drive manually.
@@ -54,7 +54,7 @@ For mint:
 
 For Ubuntu from the standard desktop installer usb image change the boot parameters to:
 
-    initrd=/casper/initrd boot=casper ip=dhcp noprompt -- automatic-ubiquity url=http://192.168.178.38:8080/preseed/linuxmint-unattended.seed  script-url=http://192.168.178.38:28080/preseed/postinstall.sh ssh-port=22 username=ubuntu hostname=ubuntu
+    initrd=/casper/initrd boot=casper ip=dhcp noprompt url=http://192.168.178.38:8080/preseed/linuxmint-unattended.seed  script-url=http://192.168.178.38:28080/preseed/postinstall.sh auto-login=false ssh-port=22 username=ubuntu hostname=ubuntu -- automatic-ubiquity
 
 ## Finish installation
 
