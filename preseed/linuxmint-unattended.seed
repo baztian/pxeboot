@@ -102,7 +102,7 @@ ubiquity ubiquity/use_nonfree boolean true
 # and add a NFS mount point in /etc/fstab to my Ansible scripts
 # (which will be automatically mounted after the reboot).
 ubiquity ubiquity/success_command string \
-  in-target sh -c "wget -q -O /tmp/postinstall.sh `grep -o 'script-url=[^ ]*' /proc/cmdline|cut -f2- -d=`; sh -x /tmp/postinstall.sh";
+  in-target sh -c "wget -q -O /tmp/postinstall.sh $(grep -o 'script-url=[^ ]*' /proc/cmdline|cut -f2- -d=); sh -x /tmp/postinstall.sh";
 
 # Finish off the install by rebooting the freshly installed Linux Mint desktop
 d-i  ubiquity/reboot  boolean true

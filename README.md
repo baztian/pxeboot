@@ -37,7 +37,7 @@ Get additional files not provided in this repo.
 
 For UEFI via USB: Hit `e` on the grub menu entry. Add `ip=dhcp noprompt`
 before `--` and append
-`automatic-ubiquity url=http://192.168.178.38:8080/preseed/linuxmint-unattended.seed script-url=http://192.168.178.38:28080/preseed/postinstall.sh`
+`automatic-ubiquity url=http://192.168.178.38:8080/preseed/linuxmint-unattended.seed script-url=http://192.168.178.38:28080/preseed/postinstall.sh ssh-port=22 username=ubuntu hostname=ubuntu`
  after the `--`.
 
 Or create a custom USB drive manually.
@@ -54,7 +54,7 @@ For mint:
 
 For Ubuntu from the standard desktop installer usb image change the boot parameters to:
 
-    initrd=/casper/initrd boot=casper ip=dhcp noprompt -- automatic-ubiquity url=http://192.168.178.38:8080/preseed/linuxmint-unattended.seed  script-url=http://192.168.178.38:28080/preseed/postinstall.sh
+    initrd=/casper/initrd boot=casper ip=dhcp noprompt -- automatic-ubiquity url=http://192.168.178.38:8080/preseed/linuxmint-unattended.seed  script-url=http://192.168.178.38:28080/preseed/postinstall.sh ssh-port=22 username=ubuntu hostname=ubuntu
 
 ## Finish installation
 
@@ -66,6 +66,10 @@ Consider extending root volume.
 
     sudo lvextend -l +100%FREE /dev/workstation/root
     sudo resize2fs -p /dev/workstation/root
+
+Consider adding the full user name as a comment.
+
+    sudo usermod -c "Firstname Lastname" user
 
 ## Virtualbox setup
 
