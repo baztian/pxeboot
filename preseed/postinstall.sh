@@ -44,6 +44,7 @@ chmod 751 ~ubuntu
 
 sudo -u ubuntu mkdir ~ubuntu/.ssh
 sudo -u ubuntu install -m 600 /dev/null ~ubuntu/.ssh/authorized_keys
+apt install -y jq
 # https://gist.github.com/baztian/68bc33c3552d602d27e87bf23df219c8
 curl  -H "Accept: application/vnd.github.v3+json" https://api.github.com/gists/68bc33c3552d602d27e87bf23df219c8 | jq -jr '.files[]|.content' >> ~ubuntu/.ssh/authorized_keys
 
