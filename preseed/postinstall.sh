@@ -46,7 +46,9 @@ sudo -u ubuntu mkdir ~ubuntu/.ssh
 sudo -u ubuntu install -m 600 /dev/null ~ubuntu/.ssh/authorized_keys
 apt install -y jq
 # https://gist.github.com/baztian/68bc33c3552d602d27e87bf23df219c8
-curl  -H "Accept: application/vnd.github.v3+json" https://api.github.com/gists/68bc33c3552d602d27e87bf23df219c8 | jq -jr '.files[]|.content' >> ~ubuntu/.ssh/authorized_keys
+curl  -H "Accept: application/vnd.github.v3+json" https://api.github.com/gists/68bc33c3552d602d27e87bf23df219c8 | \
+    python3 -c 'import json,sys;obj=json.load(sys.stdin);files=obj["files"];print("".join(files[i]["content"] for i in files))' \
+        >> ~ubuntu/.ssh/authorized_keys
 
 sudo -u ubuntu mkdir ~ubuntu/Sources
 sudo -u ubuntu git clone https://github.com/baztian/ansible-mint-setup.git ~ubuntu/Sources/ansible-mint-setup
